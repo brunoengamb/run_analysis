@@ -16,7 +16,7 @@ features<- read.table("./UCI HAR Dataset/features.txt")
 #_____________________________________________________________________________________________
 # Reading the test data set and applying the features as coluns names.
 x_test <- read.table("./UCI HAR Dataset/test/X_test.txt", col.names= features[,2])
-install.packages(dplyr)
+install.packages("dplyr")
 require(dplyr)
 x_test_mean <- select(x_test, contains("mean")) 
 x_test_std <- select(x_test, contains("std"))
@@ -29,7 +29,7 @@ test_activity_id <- read.table("./UCI HAR Dataset/test/y_test.txt", col.names = 
 DF_test <- cbind(test_subject_id , test_activity_id , x_test)
 
 # Setting labes for the activities
-install.packages(plyr)
+install.packages("plyr")
 library(plyr)
 DF_test <- join(DF_test, act, by = "ID_ACT")
 
